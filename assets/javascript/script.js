@@ -95,15 +95,70 @@ timerInterval = setInterval(function() {
 quizbody.style.display = "block";
 }
 
-
+// Shows score when quiz is over.
 function showScore(){
-    quizBody.style.display = "none"
+    quizbody.style.display = "none";
     gameoverDiv.style.display = "flex";
     clearInterval(timerInterval);
     highscoreInputName.value = "";
     finalScoreEl.innerHTML = "You got " + score + " out of " + quizQuestions.length + " correct!";
 }
 
+// Saves highscores in local storage, then runs function that shows the high scores.
+submitScoreBtn.addEventListener("click", function highscore(){
+    if(highscoreInputName.value === "") {
+        alert("Initials cannot be blank");
+        return false;
+    } 
+    else {
+        var savedHighscores = JSON.parse(localStorage.getItem("savedHighscores")) || [];
+        var currentUser = highscoreInputName.value.trim();
+        var currentHighscore = {
+            name : currentUser,
+            score : score
+        };
+        gameoverDiv.style.display = "none";
+        highscoreContainer.style.display = "flex";
+        highscoreDiv.style.display = "block";
+        endGameBtns.style.display = "flex";
+        
+    savedHighscores.push(currentHighscore);
+    localStorage.setItem("savedHighscores", JSON.stringify(savedHighscores));
+    generateHighscores();
+    }
+});
+// This function gives the ability to clear all inputted highscores and makes new list for local storage.
+function generateHighscores(){
+    highscoreDisplayName.innerHTML = "";
+    highscoreDisplayScore.innerHTML = "";
+    var highscores = JSON.parse(localStorage.getItem("savedHighscores")) || [];
+    for (i=0; i<highscores.length; i++) {
+        var newName = document.createElement("li");
+        var newScore = document.createElement("li");
+        newName.textContent = highscores[i].name;
+        newScore.textContent = highscores[i].score;
+        highscoreDisplayName.appendChild(newName);
+        highscoreDisplayScore.appendChild(newScore);
+    }
+}
+
+// When the highscore page opens, this function should hide all pages that are not the highscore page.
+function showHighscore(){
+    startQuizDiv.style.display = "none";
+    gameoverDiv.style.display = "none";
+    highscoreContainer.style.display = "flex";
+    highscoreDiv.style.display = "block";
+    endGameBtns.style.display = "flex";
+
+    generateHighscores();
+}
+
+// This function will clear all trace of the highscores from both the local storage and the highscores page
+function clearScore(){
+    window.localStorage.clear();
+    highscoreDisplayName.textContent = "";
+    highscoreDisplayScore.textContent = "";
+}
 
 
 
