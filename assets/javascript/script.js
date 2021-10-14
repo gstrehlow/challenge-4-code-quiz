@@ -169,27 +169,26 @@ function replayQuiz() {
     currentQuestionIndex = 0;
 }
 
+// this will check whether a response is correct or incorrect 
+function checkAnswer(answer) {
+    correct = quizQuestions[currentQuestionIndex].correctAnswer;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    if (answer === correct && currentQuestionIndex !== finalQuestionIndex){
+        score++;
+        alert("Correct!");
+        currentQuestionIndex++;
+        generateQuizQuestion();
+    }
+    else if (answer !== correct && currentQuestionIndex !== finalQuestionIndex) {
+        alert("Incorrect!");
+        currentQuestionIndex++;
+        generateQuizQuestion();
+        timeLeft--;
+    }
+    else {
+        showScore();
+    }
+}
 
 // start button
 startQuizButton.addEventListener("click",startQuiz);
