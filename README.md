@@ -1,4 +1,6 @@
 # Challenge 4: Code Quiz 
+![screencapture-gstrehlow-github-io-challenge-4-code-quiz-2021-10-14-11_32_52](https://user-images.githubusercontent.com/90304692/137359500-4f6977df-aaed-4385-8928-652fdc898c3f.png)
+
 ## My Task
 As you proceed in your journey to becoming a full-stack web developer, it’s likely that you’ll be asked to complete a coding assessment, perhaps as part of an interview process. A typical coding assessment is a combination of multiple-choice questions and interactive coding challenges.
 
@@ -12,3 +14,5 @@ As a coding boot camp student, I want to take a timed quiz on JavaScript fundame
 - When I answer a question incorrectly, then time is subtracted from the clock
 - When all questions are answered or the timer reaches 0, then the game is over
 - When the game is over, then I can save my initials and score
+
+[Deployed Application]()
