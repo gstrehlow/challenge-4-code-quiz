@@ -10,6 +10,10 @@ p {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+h1 { 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 h2 {
     margin-top: -.5rem;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -96,7 +100,7 @@ button:hover {
     justify-content: space-around;
     border-bottom-style: outset;
     margin-bottom: .5rem;
-    background-color: #5e6df1;
+    background-color: #8fbc8f;
     color: #eeeeee;
     font-family: sans-serif;
 }
