@@ -159,6 +159,15 @@ function clearScore(){
     highscoreDisplayName.textContent = "";
     highscoreDisplayScore.textContent = "";
 }
+// this will allow the quiz to be restarted and everything to go back to its original position
+function replayQuiz() {
+    highscoreContainer.style.display = "none";
+    gameoverDiv.style.display = "none";
+    startQuizDiv.style.display = "flex";
+    timeLeft = 60;
+    score = 0;
+    currentQuestionIndex = 0;
+}
 
 
 
@@ -182,4 +191,5 @@ function clearScore(){
 
 
 
+// start button
 startQuizButton.addEventListener("click",startQuiz);
